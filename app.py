@@ -25,6 +25,7 @@ def hello():
         chat_id = update["message"]["chat"]["id"]
         if chat_id not in users:
             users.append(chat_id)
+        request.get("https://api.telegram.org/bot{}/sendMessage?chat_id={}&text=Hello%20World".format("658605557:AAGQrDKPH3dqtPbDjvEK_I9BcW4VSr-A5yk", chat_id))
         bot.sendMessage(chat_id, "From the web: you said '{}'".format(text))
     return "OK"
 
