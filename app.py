@@ -3,7 +3,7 @@ from flask import Flask
 from flask import render_template
 from flask import Flask, request
 import telepot
-
+import urllib3
 app = Flask(__name__)
 proxy_url = "http://proxy.server:3128"
 telepot.api._pools = {
