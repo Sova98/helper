@@ -1,29 +1,28 @@
-import requests
 from flask import Flask, request
-import os
+import telebot
+from telebot import types
+import time
+
+secret = "n1hz7waCT9"
+bot = telebot.TeleBot('658605557:AAGQrDKPH3dqtPbDjvEK_I9BcW4VSr-A5yk', threaded=False)
+
+bot.remove_webhook()
+time.sleep(1)
+bot.set_webhook(url="https://sovervo98.scalingo.io/{}".format(secret))
+
 app = Flask(__name__)
 
-bot_token = "658605557:AAGQrDKPH3dqtPbDjvEK_I9BcW4VSr-A5yk"
+@app.route('/{}'.format(secret), methods=["POST"])
+def webhook():
+    bot.process_new_updates([telebot.types.Update.de_json(request.stream.read().decode("utf-8"))])
+    print("Message")
+    return "ok", 200
 
-def get_url(method):
-  return "https://api.telegram.org/bot{}/{}".format(bot_token,method)
 
-def process_message(update):
-    data = {}
-    data["chat_id"] = update["message"]["from"]["id"]
-    data["text"] = "I can hear you!"
-    r = requests.post(get_url("sendMessage"), data=data)
-
-@app.route("/{}".format(bot_token), methods=["POST"])
-def process_update():
-    update = request.get_json()
-    print('UPDATE', update)
-    if "message" in update:
-        process_message(update)
-    return "ok!", 200
+@bot.message_handler(commands=['start', 'help'])
+def startCommand(message):
+    bot.send_message(message.chat.id, 'Hi *' + message.chat.first_name + '*!' , parse_mode='Markdown', reply_markup=types.ReplyKeyboardRemove())
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
     app.run(host='0.0.0.0', port=port)
-
-
