@@ -15,7 +15,7 @@ bot.setWebhook("https://sovervo98.scalingo.io/{}".format(secret), max_connection
 
 app = Flask(__name__)
 users = []
-def update_data(interval, bot):
+def update_data(interval):
     print('CALLED update_data !!!!!!!!!!!!!!')
     global users
     print('USERS ARE : ', users)
@@ -25,7 +25,7 @@ def update_data(interval, bot):
     Timer(interval, update_data, [interval]).start()
 
 # update data every second
-update_data(10, bot)
+update_data(10)
 
 
 @app.route('/{}'.format(secret), methods=["POST"])
