@@ -32,10 +32,10 @@ update_data(10)
 def telegram_webhook():
     print("request from telegram!!!!!")
     update = request.get_json()
-    print('UPDATE: ', update)
     if "message" in update:
         global users
         text = update["message"]["text"]
+        print('MESSAGE: ', text)
         chat_id = update["message"]["chat"]["id"]
         if chat_id not in users:
             users.append(chat_id)
