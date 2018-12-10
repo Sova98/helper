@@ -18,6 +18,7 @@ def process_message(update):
 def process_update():
     if request.method == "POST":
         update = request.get_json()
+        print('UPDATE', update)
         if "message" in update:
             process_message(update)
         return "ok!", 200
