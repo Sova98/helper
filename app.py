@@ -3,12 +3,12 @@ import telepot
 import urllib3
 from threading import Timer
 
-proxy_url = "http://proxy.server:3128"
+"""proxy_url = "http://proxy.server:3128"
 telepot.api._pools = {
     'default': urllib3.ProxyManager(proxy_url=proxy_url, num_pools=3, maxsize=10, retries=False, timeout=30),
 }
 telepot.api._onetime_pool_spec = (urllib3.ProxyManager, dict(proxy_url=proxy_url, num_pools=1, maxsize=1, retries=False, timeout=30))
-
+"""
 secret = "bddad84a-f6a3-445b-8f1d-31f9e3b4697b"
 bot = telepot.Bot('658605557:AAGQrDKPH3dqtPbDjvEK_I9BcW4VSr-A5yk')
 bot.setWebhook("https://sova98.pythonanywhere.com/{}".format(secret), max_connections=1)
