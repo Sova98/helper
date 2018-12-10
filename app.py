@@ -30,6 +30,7 @@ update_data(10)
 
 @app.route('/{}'.format(secret), methods=["POST"])
 def telegram_webhook():
+    print("request from telegram!!!!!")
     update = request.get_json()
     if "message" in update:
         global users
