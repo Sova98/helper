@@ -39,10 +39,25 @@ def telegram_webhook():
             users.append(chat_id)
         bot.sendMessage(chat_id, "From the web: you said '{}'".format(text))
     return "OK"
-"""
+
 from flask import Flask
 app = Flask(__name__)
 
 @app.route("/")
 def hello():
     return "Hello World!"
+"""
+
+import os
+from flask import Flask
+from flask import render_template
+
+app = Flask(__name__)
+
+@app.route("/")
+def hello():
+    return "hello"
+
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host='0.0.0.0', port=port)
