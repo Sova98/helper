@@ -40,8 +40,3 @@ def telegram_webhook():
             users.append(chat_id)
         bot.sendMessage(chat_id, "From the web: you said '{}'".format(text))
     return "OK"
-
-if __name__ == "__main__":
-    app.run(host='https://sovervo98.scalingo.io/')
-
-
