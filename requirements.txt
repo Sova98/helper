@@ -12,3 +12,4 @@ Werkzeug==0.10.4
 requests==2.21.0
 
 telepot==12.7
+telebot==0.0.3
