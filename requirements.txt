@@ -1,2 +1,7 @@
-Flask==0.12.2
-telepot==12.7
+ez-setup==0.9
+Flask==0.10.1
+itsdangerous==0.24
+Jinja2==2.7.3
+MarkupSafe==0.23
+Werkzeug==0.10.4
+Flask==0.12.2telepot==12.7

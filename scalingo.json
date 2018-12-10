@@ -1,0 +1,6 @@
+{
+  "name": "Sample Python Flask",
+  "description": "Sample Python web application using the Flask framework",
+  "logo": "https://scalingo.com/logo.svg",
+ "website": "https://sovervo98.scalingo.io"
+}
