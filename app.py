@@ -16,12 +16,11 @@ def process_message(update):
 
 @app.route("/{}".format(bot_token), methods=["POST"])
 def process_update():
-    if request.method == "POST":
-        update = request.get_json()
-        print('UPDATE', update)
-        if "message" in update:
-            process_message(update)
-        return "ok!", 200
+    update = request.get_json()
+    print('UPDATE', update)
+    if "message" in update:
+        process_message(update)
+    return "ok!", 200
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
