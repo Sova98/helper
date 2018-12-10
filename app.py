@@ -13,7 +13,7 @@ secret = "bddad84a-f6a3-445b-8f1d-31f9e3b4697b"
 bot = telepot.Bot('658605557:AAGQrDKPH3dqtPbDjvEK_I9BcW4VSr-A5yk')
 bot.setWebhook("https://sovervo98.scalingo.io/{}".format(secret), max_connections=1)
 
-app = Flask(__name__)
+"""app = Flask(__name__)
 users = []
 def update_data(interval):
     print('CALLED update_data !!!!!!!!!!!!!!')
@@ -26,7 +26,7 @@ def update_data(interval):
 
 # update data every second
 update_data(10)
-
+"""
 
 @app.route('/{}'.format(secret), methods=["POST"])
 def telegram_webhook():
