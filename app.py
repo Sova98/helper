@@ -39,3 +39,8 @@ def telegram_webhook():
             users.append(chat_id)
         bot.sendMessage(chat_id, "From the web: you said '{}'".format(text))
     return "OK"
+
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host='0.0.0.0', port=port)
+
