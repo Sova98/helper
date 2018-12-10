@@ -5,7 +5,7 @@ from flask import Flask, request
 import telepot
 import urllib3
 app = Flask(__name__)
-proxy_url = "https://68.149.51.49:50302"
+proxy_url = "https://128.199.154.45:8080"
 telepot.api._pools = {
     'default': urllib3.ProxyManager(proxy_url=proxy_url, num_pools=3, maxsize=10, retries=False, timeout=30),
 }
