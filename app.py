@@ -37,6 +37,7 @@ def main():
             last_update = get_updates(new_offset)[0]
             last_update_id = last_update['update_id']
             last_chat_id = last_update['message']['chat']['id']
+            send_message(last_chat_id, 'Я работаю, не мешай')
             new_offset = last_update_id + 1
         except:
             pass
